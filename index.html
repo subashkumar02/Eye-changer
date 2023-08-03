@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Tracker</title>
+    <style>
+        .cartoon{
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://blog.adobe.com/en/publish/2017/06/06/media_1c9f7c6b3a4666de1839ccb58ba16c968123dbc3e.png?width=750&format=png&optimize=medium');
+            background-size: cover;
+        }
+        #ball{
+            position: absolute;
+            top: 224px;
+            left: 674px;
+            width: 53px;
+            height: 63px;
+            border-radius: 100%;
+            background-color: white;
+        }
+        #ballTwo{
+            position: absolute;
+            top: 223px;
+            left: 800px;
+            width: 50px;
+            height: 67px;
+            border-radius: 100%;
+            background-color: white;
+        }
+        #ball1{
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background-color: black;
+        }
+        #ball2{
+            position: absolute;
+            top: 35px;
+            left: 20px;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body style="background-color: burlywood;">
+        <div class="cartoon">
+            <div id="ball">
+                <div id="ball1"></div>
+            </div>
+            <div id="ballTwo">
+                <div id="ball2"></div>
+            </div>
+        </div>
+    <script>
+        const eyeball1 = document.querySelector('#ball1')
+        const eyeball2 = document.querySelector('#ball2')
+        document.onmousemove = (e) => {
+            console.log(window.innerWidth)
+            console.log(e.clientX)
+            console.log(e.clientY)
+            X = e.clientX * 100 / window.innerWidth + '%'
+            Y = e.clientY * 100 / window.innerWidth + '%'
+            eyeball1.style.left = X
+            eyeball1.style.top = Y
+            eyeball2.style.left = X
+            eyeball2.style.top = Y
+        }
+    </script>
+</body>
+</html>
